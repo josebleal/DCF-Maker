@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #050d1a;
+    --bg-secondary: #0a1628;
+    --bg-card: #0f2040;
+    --border: rgba(255,255,255,0.07);
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --accent: #3b82f6;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    @apply bg-navy-950 text-slate-100 antialiased font-sans;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(59,130,246,0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(30,58,138,0.08) 0%, transparent 50%);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #0a1628; }
+  ::-webkit-scrollbar-thumb { background: #1e3a6e; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+}
+
+@layer components {
+  /* Card primitive */
+  .card {
+    @apply bg-navy-900 border border-white/5 rounded-xl shadow-card;
+  }
+
+  /* KPI tile */
+  .kpi-tile {
+    @apply card p-4 flex flex-col gap-1;
+  }
+
+  /* Editable number input */
+  .assumption-input {
+    @apply bg-navy-800 border border-white/10 rounded-md px-2 py-1
+           text-right font-mono text-sm text-slate-100
+           focus:outline-none focus:ring-1 focus:ring-accent/60
+           hover:border-accent/30 transition-colors w-full;
+  }
+
+  /* Table cell base */
+  .tbl-cell {
+    @apply px-3 py-2 text-right text-sm font-mono;
+  }
+
+  /* Source badge */
+  .source-badge {
+    @apply text-[10px] font-mono px-1.5 py-0.5 rounded-sm uppercase tracking-wide;
+  }
+
+  /* Scenario pill */
+  .scenario-pill {
+    @apply px-3 py-1 rounded-full text-xs font-semibold tracking-wide;
+  }
+}
+
+@layer utilities {
+  .text-positive { @apply text-green-400; }
+  .text-negative { @apply text-red-400; }
+  .text-warning { @apply text-amber-400; }
+  .text-neutral { @apply text-slate-400; }
+  .bg-positive { @apply bg-green-400/10; }
+  .bg-negative { @apply bg-red-400/10; }
+  .bg-warning { @apply bg-amber-400/10; }
+}
